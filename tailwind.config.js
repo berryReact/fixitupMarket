@@ -33,6 +33,7 @@ module.exports = {
 
 				// Hazard Yellow
 				hazard: {
+					25: '#FFFEEE',
 					50: '#FFF9D6',
 					100: '#FFF3AD',
 					200: '#FFE76A',

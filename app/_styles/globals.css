@@ -13,8 +13,20 @@
  */
  
 @layer utilities {
+	
+.brushed-metal-bg {
+    background-color: theme('colors.metal.100');
+    background-image:
+      repeating-linear-gradient(
+        47deg,
+        rgba(0, 0, 0, 0.06) 0px,
+        rgba(0, 0, 0, 0.06) 1px,
+        rgba(255, 255, 255, 0.07) 1px,
+        rgba(255, 255, 255, 0.09) 2px
+      );
+  }
   .hazard-border {
-    border-width: 4px;
+    border-width: 2.6px;
     border-style: solid;
     border-image: repeating-linear-gradient(
       45deg,
@@ -22,6 +34,21 @@
       theme('colors.ink.500') 10px 20px
     ) 8;
   }
+	
+	.hazard-border-tb {
+  border-top-width: 3px;
+  border-bottom-width: 3px;
+  border-left-width: 0;
+  border-right-width: 0;
+
+  border-style: solid;
+
+  border-image: repeating-linear-gradient(
+    45deg,
+    theme('colors.hazard.400') 0 10px,
+    theme('colors.ink.500') 10px 20px
+  ) 8;
+}
 }
 
 
