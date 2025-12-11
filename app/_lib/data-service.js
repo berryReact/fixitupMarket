@@ -1,5 +1,19 @@
 import { eachDayOfInterval } from 'date-fns';
 
+export const getCabins = async function () {
+	const { data, error } = await supabase
+		.from('cabins')
+		.select('id, name, maxCapacity, regularPrice, discount, image')
+		.order('name');
+
+	if (error) {
+		console.error(error);
+		throw new Error('Cabins could not be loaded');
+	}
+
+	return data;
+};
+
 
 /// 			CODE EXAMPLES			///
 
@@ -35,19 +49,19 @@ export async function getCabinPrice(id) {
 	return data;
 }
 
-export const getCabins = async function () {
-	const { data, error } = await supabase
-		.from('cabins')
-		.select('id, name, maxCapacity, regularPrice, discount, image')
-		.order('name');
+// export const getCabins = async function () {
+// 	const { data, error } = await supabase
+// 		.from('cabins')
+// 		.select('id, name, maxCapacity, regularPrice, discount, image')
+// 		.order('name');
 
-	if (error) {
-		console.error(error);
-		throw new Error('Cabins could not be loaded');
-	}
+// 	if (error) {
+// 		console.error(error);
+// 		throw new Error('Cabins could not be loaded');
+// 	}
 
-	return data;
-};
+// 	return data;
+// };
 
 // Guests are uniquely identified by their email address
 export async function getGuest(email) {

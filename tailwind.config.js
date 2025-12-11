@@ -68,7 +68,7 @@ module.exports = {
 					100: '#EDD9CC',
 					200: '#DBB4A0',
 					300: '#C98F74',
-					400: '#B56B48',
+					400: '#B25B26',
 					500: '#A24D2B',     // main rust
 					600: '#823C22',
 					700: '#632C19',
@@ -82,7 +82,15 @@ module.exports = {
 					100: '#FAFAFA',
 					200: '#F5F5F5'
 				}
-			}
+
+			},
+			boxShadow: {
+				'metal-sm': '0 1px 2px rgba(108,115,125,0.25)',   // metal-500
+				'metal-nrm': '0 2px 4px rgba(108,115,125,0.35)',   // metal-500
+				'metal-md': '0 3px 6px rgba(42,45,49,0.38)',      // metal-800
+				'metal-lg': '0 6px 12px rgba(26,28,31,0.47)',     // metal-900
+				'metal-xlg': '0 6px 12px rgba(26,28,31,0.60)',     // metal-900
+			},
 		}
 
 	},

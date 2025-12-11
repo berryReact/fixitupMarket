@@ -5,7 +5,7 @@ import Link from "next/link";
 function Logo() {
   return (
     <Link href="/" className="z-10 flex items-center gap-4">
-      <Image src={logo} height="300" width="400" alt="" />
+      <Image src={logo} height="200" width="300" alt="" />
     </Link>
   );
 }

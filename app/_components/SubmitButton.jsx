@@ -1,8 +1,7 @@
-import Link from "next/link";
-
-function LinkButton({
+function SubmitButton({
   children,
-  href,
+  isSubmitting,
+  pendingText = "Submitting...",
   variant = "primary",
   size = "medium",
   text = "nrm",
@@ -60,15 +59,14 @@ function LinkButton({
     lg: "shadow-metal-lg",
     xl: "shadow-metal-xlg",
   };
-
   return (
-    <Link
+    <button
+      type="submit"
+      disabled={isSubmitting}
       className={`self-center ${shadows[shadow]} ${borderColor[border]} ${corners[corner]} ${textSize[text]} ${variants[variant]} ${sizes[size]} transition-all duration-200`}
-      href={href}
     >
-      {children}
-    </Link>
+      {isSubmitting ? pendingText : children}
+    </button>
   );
 }
-
-export default LinkButton;
+export default SubmitButton;
