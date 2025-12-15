@@ -3,6 +3,11 @@ import "@/app/_styles/globals.css";
 import { Orbitron } from "next/font/google";
 import Header from "@/app/_components/Header";
 import { Toaster } from "react-hot-toast";
+import Link from "next/link";
+import { getOptionalUser } from "./_lib/auth/require-user";
+import LinkButton from "@/app/_components/LinkButton";
+import { signOutFormAction } from "./_lib/actions";
+import SubmitButton from "@/app/_components/SubmitButton";
 
 export const orbitron = Orbitron({
   subsets: ["latin"],
@@ -19,15 +24,20 @@ export const metadata = {
     "A marketplace for broken, damaged, and fixable items. Buy, sell, and repurpose.",
 };
 
-export default function RootLayout({ children }) {
+export default async function RootLayout({ children }) {
+  const { user, supabase, profile } = await getOptionalUser();
+
   return (
     <html lang="en">
       <body
-        className={`${orbitron.className} bg-metal-200 text-metal-900 flex min-h-screen flex-col antialiased`}
+        className={`${orbitron.className} flex min-h-dvh flex-col bg-hazard-100 text-metal-900 antialiased`}
       >
-        <Header />
-        <div className="brushed-metal-bg flex-1">
-          <main className="mx-auto w-full">{children}</main>
+        <Header user={user} profile={profile} />
+        <div className="brushed-metal-bg flex flex-1 flex-col">
+          <main className="mx-auto flex min-h-0 w-full flex-1 flex-col">
+            {children}
+          </main>
+
           <Toaster
             position="top-center"
             toastOptions={{
@@ -75,8 +85,21 @@ export default function RootLayout({ children }) {
           />
         </div>
 
-        <footer className="text-metal-700 px-4 py-4 text-xs">
-          copyright 2025 &copy;{" "}
+        <footer className="px-4 py-4 text-xs text-metal-700">
+          <div className="flex items-center justify-between">
+            {/* copyright 2025 &copy; */}
+            <Link href="/admin/login">Admin</Link>
+            <LinkButton size="small" variant="accent" text="sm" href="/signup">
+              Sign up
+            </LinkButton>
+            {user && (
+              <form action={signOutFormAction}>
+                <SubmitButton size="small" variant="accent">
+                  Logout
+                </SubmitButton>
+              </form>
+            )}
+          </div>
         </footer>
       </body>
     </html>

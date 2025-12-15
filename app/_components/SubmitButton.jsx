@@ -14,6 +14,8 @@ function SubmitButton({
       "font-semibold text-brand-steel tracking-wide  bg-brand-yellow hover:bg-brand-steel hover:text-brand-yellow",
     secondary:
       "bg-rust-400 text-paper-50 tracking-wide font-semibold hover:bg-rust-50 hover:text-rust-500",
+    accent:
+      "bg-metal-800 text-paper-50 tracking-wide font-semibold hover:bg-rust-50 hover:text-ink-50",
   };
 
   const sizes = {

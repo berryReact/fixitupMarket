@@ -6,25 +6,30 @@ function LinkButton({
   variant = "primary",
   size = "medium",
   text = "nrm",
-  corner = "sm",
+  corner = "none",
   border = "none",
   shadow = "none",
 }) {
   const variants = {
     primary:
+      "font-semibold text-brand-steel tracking-wide  bg-hazard-100 hover:bg-brand-steel hover:text-brand-yellow",
+    primaryDark:
       "font-semibold text-brand-steel tracking-wide  bg-brand-yellow hover:bg-brand-steel hover:text-brand-yellow",
     secondary:
       "bg-rust-400 text-paper-50 tracking-wide font-semibold hover:bg-rust-50 hover:text-rust-500",
+    accent:
+      "bg-metal-800 text-paper-50 tracking-wide font-semibold hover:bg-rust-50 hover:text-ink-50",
   };
 
   const sizes = {
-    xsmall: "px-[.3rem] py-[.1rem]",
+    xsmall: "px-[.25rem] py-[.05rem]",
     small: "px-2 py-1",
     medium: "px-4 py-2",
     large: "px-6 py-3 text-xl",
   };
 
   const textSize = {
+    xsm: "text-[.65rem]",
     sm: "text-xs",
     med: "text-sm",
     nrm: "text-base",
@@ -33,6 +38,7 @@ function LinkButton({
   };
 
   const corners = {
+    none: "rounded-none",
     xsm: "rounded-xs",
     sm: "rounded-sm",
     med: "rounded-md",

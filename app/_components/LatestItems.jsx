@@ -1,15 +1,17 @@
-function LatestItems() {
-  const latestItems = [];
+import { getLatestItems } from "@/app/_lib/data-service";
+import ItemRow from "./ItemRow";
+
+export const revalidate = 0;
+
+async function LatestItems() {
+  const latestItems = await getLatestItems();
 
   return (
-    <div className="p-5">
-      <header>
-        <h2>Latest Items</h2>
-      </header>
-      <div className="">
-        {latestItems.map((item) => {
-          console.log(item);
-        })}
+    <div>
+      <div className="flex flex-col gap-2">
+        {latestItems.map((item) => (
+          <ItemRow key={item.id} item={item} />
+        ))}
       </div>
     </div>
   );

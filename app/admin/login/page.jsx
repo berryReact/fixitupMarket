@@ -1,11 +1,6 @@
 import LoginForm from "@/app/_components/LoginForm";
-import { signInUserFormAction } from "@/app/_lib/actions";
 import Logo from "@/app/_components/Logo";
-
-export const metadata = {
-  title: "Login",
-  description: "Log in to your Fix-It-Up Market account.",
-};
+import { signInAdminFormAction } from "@/app/_lib/actions";
 
 function Page() {
   return (
@@ -13,11 +8,10 @@ function Page() {
       <div className="mb-8 py-4">
         <Logo />
       </div>
-      <div>
-        <form action={signInUserFormAction}>
-          <LoginForm />
-        </form>
-      </div>
+      <h2 className="pb-6 text-2xl font-semibold">Admin</h2>
+      <form action={signInAdminFormAction}>
+        <LoginForm />
+      </form>
     </div>
   );
 }

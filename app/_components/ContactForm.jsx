@@ -12,6 +12,7 @@ function ContactForm() {
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors, isSubmitting },
   } = useForm();
 
@@ -20,13 +21,14 @@ function ContactForm() {
 
     if (result.success) {
       toast.success("Message Sent Successfully");
+      reset();
     } else {
       toast.error(result.error || "Something Went Wrong...");
     }
   }
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="p-8">
+    <form onSubmit={handleSubmit(onSubmit)} className="px-6 pb-4">
       <FormRow
         label="Name"
         name="name"
@@ -53,7 +55,7 @@ function ContactForm() {
           name="message"
           id="message"
           rows="6"
-          className="border-metal-600 bg-hazard-50 focus:border-hazrd-800 focus:ring-hazard-300 w-full rounded-md border px-3 py-2 outline-none focus:ring-2"
+          className="focus:border-hazrd-800 w-full rounded-md border border-metal-600 bg-hazard-50 px-3 py-2 outline-none focus:ring-2 focus:ring-hazard-300"
           {...register("message", {
             required: "Message is required",
             minLength: {

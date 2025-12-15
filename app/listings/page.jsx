@@ -1,3 +1,5 @@
+import LatestItems from "@/app/_components/LatestItems";
+import Logo from "@/app/_components/Logo";
 export const metadata = {
   title: "Listings",
   description:
@@ -5,5 +7,12 @@ export const metadata = {
 };
 
 export default function Page() {
-  return <h1>Hello Listings</h1>;
+  return (
+    <div className="flex flex-col gap-8 px-4 py-4">
+      <h2 className="text-center">Listings</h2>
+      <div>
+        <LatestItems />
+      </div>
+    </div>
+  );
 }

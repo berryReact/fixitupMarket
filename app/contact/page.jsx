@@ -12,7 +12,7 @@ export default function Page() {
       <div className="py-4">
         <Logo />
       </div>
-      <div className="text-metal-900 flex flex-col items-center gap-2 px-8 py-4 text-[.9rem] font-medium">
+      <div className="flex flex-col items-center gap-2 px-8 py-2 text-[.9rem] font-medium text-metal-900">
         <p className="text-center">
           Something broken on the site instead of in the listings?
         </p>
