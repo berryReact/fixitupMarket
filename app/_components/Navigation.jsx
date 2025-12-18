@@ -1,27 +1,31 @@
 import Link from "next/link";
+import LinkButton from "./LinkButton";
 
-function Navigation() {
+function Navigation({ profile }) {
   return (
-    <ul className="flex items-center justify-between gap-4 px-4 pt-2 text-sm">
-      {/* <li>
-        <Link href="/">Home</Link>
-      </li> */}
-
+    <ul className="flex items-center justify-between gap-3 px-3 pt-2 text-sm">
       <li>
-        <Link href="/listings">Listings</Link>
+        <Link href="/listings">All Listings</Link>
       </li>
-
-      {/* <li>
-        <Link href="/about">About</Link>
-      </li> */}
-
       <li>
         <Link href="/contact">Contact</Link>
       </li>
-
       <li>
         <Link href="/account">Account</Link>
       </li>
+
+      {profile?.role === "admin" ||
+        (profile?.role === "supervisor" && (
+          <LinkButton
+            size="small"
+            variant="accent"
+            text="sm"
+            href="/admin/dashboard"
+          >
+            {" "}
+            Admin
+          </LinkButton>
+        ))}
     </ul>
   );
 }

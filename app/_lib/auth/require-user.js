@@ -3,7 +3,7 @@ import { createSupabaseServerClient } from "@/app/_lib/supabase/server";
 
 
 
-export async function requireAdmin(redirectTo = "/admin/login") {
+export async function requireAdmin(redirectTo = "/login") {
 
 	const supabase = createSupabaseServerClient();
 
@@ -17,7 +17,8 @@ export async function requireAdmin(redirectTo = "/admin/login") {
 		.eq("id", user.id)
 		.single();
 
-	if (!profile || profile.role !== "admin") {
+	if (!profile || (profile.role !== "admin" && profile.role !== "supervisor")) {
+
 		redirect(redirectTo);
 	}
 
@@ -34,7 +35,6 @@ export async function getOptionalUser() {
 	const { data: { user } } = await supabase.auth.getUser();
 
 	if (!user) return { user: null, profile: null }
-
 
 	const { data: profile, error } = await supabase
 		.from("profiles")

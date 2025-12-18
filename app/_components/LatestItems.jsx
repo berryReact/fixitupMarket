@@ -3,8 +3,8 @@ import ItemRow from "./ItemRow";
 
 export const revalidate = 0;
 
-async function LatestItems() {
-  const latestItems = await getLatestItems();
+async function LatestItems({ limit }) {
+  const latestItems = await getLatestItems({ limit });
 
   return (
     <div>
